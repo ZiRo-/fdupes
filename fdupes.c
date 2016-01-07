@@ -794,10 +794,10 @@ void deletefiles(file_t *files, int prompt, FILE *tty)
 
       if (prompt) printf("\n");
 
-      if (!prompt) /* preserve only the first file */
+      if (!prompt) /* preserve only the last file */
       {
-         preserve[1] = 1;
-	 for (x = 2; x <= counter; x++) preserve[x] = 0;
+         preserve[counter] = 1;
+	 for (x = 1; x < counter; x++) preserve[x] = 0;
       }
 
       else /* prompt for files to preserve */
